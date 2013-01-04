@@ -60,44 +60,82 @@ XTerm*metaSendsEscape: true
 XTerm*eightBitInput: false
 XTerm*faceName : Dejavu Vera Sans Mono
 XTerm*faceSize : 10
-XTerm.vt100.allowSendEvents: on
+XTerm*vt100.allowSendEvents: on
 XTerm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
 XTerm*locale : utf8
 
 !Urxvt
-URxvt*font	 :	xft:BitStream Vera Sans Mono:pixelsize=13
+URxvt.depth: 32
+URxvt.geometry: 90x30
+URxvt.transparent: false
+URxvt.fading: 0
+!URxvt.urgentOnBell: true
+!URxvt.visualBell: true
+URxvt.loginShell: true
+URxvt.saveLines: 50
+URxvt.internalBorder: 3
+URxvt.lineSpace: 0
+
+!URxvt*font	 :	xft:BitStream Vera Sans Mono:pixelsize=13
+URxvt*font: xft:Monospace:pixelsize=14
+URxvt*boldFont: xft:Monospace:pixelsize=14
 URxvt*scrollBar	 :	false
 URxvt*eightBitInput :   false
-URxvt.perl-ext-common:  default,matcher
-URxvt.urlLauncher:      /usr/local/bin/xombrero
-URxvt.matcher.button:   1
-
-URxvt*background: S_base03
-URxvt*foreground: S_base0
-URxvt*fading: 40
-URxvt*fadeColor: S_base03
-URxvt*cursorColor: S_base1
-URxvt*pointerColorBackground: S_base01
-URxvt*pointerColorForeground: S_base1
+URxvt*perl-ext-common:  default,matcher
+URxvt*urlLauncher:      /usr/local/bin/xombrero
+URxvt*matcher.button:   1
 
 
-URxvt*color0: S_base02
-URxvt*color1: S_red
-URxvt*color2: S_green
-URxvt*color3: S_yellow
-URxvt*color4: S_blue
-URxvt*color5: S_magenta
-URxvt*color6: S_cyan
-URxvt*color7: S_base2
-URxvt*color9: S_orange
-URxvt*color8: S_base03
-URxvt*color10: S_base01
-URxvt*color11: S_base00
-URxvt*color12: S_base0
-URxvt*color13: S_violet
-URxvt*color14: S_base1
-URxvt*color15: S_base3
 
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+!!Source http://github.com/altercation/solarized
+
+*background: #002b36
+*foreground: #657b83
+!!*fading: 40
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+
+!! black dark/light
+*color0: #073642
+*color8: #002b36
+
+!! red dark/light
+*color1: #dc322f
+*color9: #cb4b16
+
+!! green dark/light
+*color2: #859900
+*color10: #586e75
+
+!! yellow dark/light
+*color3: #b58900
+*color11: #657b83
+
+!! blue dark/light
+*color4: #268bd2
+*color12: #839496
+
+!! magenta dark/light
+*color5: #d33682
+*color13: #6c71c4
+
+!! cyan dark/light
+*color6: #2aa198
+*color14: #93a1a1
+
+!! white dark/light
+*color7: #eee8d5
+*color15: #fdf6e3
 
 
 ! xcalc config (toujours classe de mettre des commentaires exotiques)
