@@ -11,7 +11,7 @@ require("vicious")
 
 --obvious
 --battery
-require("obvious.battery")
+--require("obvious.battery")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -51,7 +51,7 @@ layouts =
 -- Define a tag table which hold all screen tags.
 tags = {
     names   = { "main", "www",  "mail","office", "IM"},
-    layouts = {layouts[4],layouts[7],layouts[7], layouts[7], layouts[1]}
+    layouts = {layouts[4],layouts[3],layouts[3], layouts[3], layouts[1]}
 }
 
 for s = 1, screen.count() do
