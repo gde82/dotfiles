@@ -72,9 +72,10 @@ URxvt.fading: 0
 !URxvt.urgentOnBell: true
 !URxvt.visualBell: true
 URxvt.loginShell: true
-URxvt.saveLines: 50
+URxvt.saveLines: 5000
 URxvt.internalBorder: 3
 URxvt.lineSpace: 0
+
 
 !URxvt*font	 :	xft:BitStream Vera Sans Mono:pixelsize=13
 URxvt*font: xft:Monospace:pixelsize=14
