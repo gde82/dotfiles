@@ -1,20 +1,20 @@
 "afiche la barre d’url
-set guioptions+=n
+"set guioptions+=n
 
 " mode d’affichage des onglets (1=que si plus d’un onglet est ouvert)
-set showtabline=1
+"set showtabline=1
 
 "dans quel sens les autocompletions sont-elles proposées
 set complete=slf
 
 " permet de visualiser les résultats de la awsomebar avec :open et :tab 
-set wildoptions=auto
+"set wildoptions=auto
 
 " comportement de la completion
 set wildmode=list:longest,list:full
 
 "Charge l’historique au démarage pour augmenter la vitesse de la completion
-set preload
+"set preload
 
 "visualbell
 set visualbell
@@ -29,45 +29,12 @@ set focuscontent
 " deffinie quelles commandes sont ouvertes dans un nouvel onglet
 "set newtab=all
 
-" Colore la barre du bas quand elle a le focus
-"javascript <<EOM
-"(function(){
-"var inputElm = document.getElementById('liberator-commandline-command');
-"function swapBGColor(event){
-"  inputElm.parentNode.style.backgroundColor = event.type=="focus" ?
-"yellow" : "";
-"}
-"inputElm.addEventListener('focus',swapBGColor,false);
-"inputElm.addEventListener('blur', swapBGColor,false);
-"})();
-"EOM
-
-" désactive vimpérator dans gmail, greader, gcalendar
-:autocmd LocationChange .* :fmapc
-:autocmd LocationChange mail\\.google\\.com/mail :fmap -depth 4 c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
-:autocmd LocationChange www\\.google\\.com/reader :fmap! -vkey j k n p m s t v A r S N P X O gh ga gs gt gu u / ?
-
-" dit a vim, quand on édite depuis gmail, que le contenu est un courriel
-"au LocationChange .* :set editor=gvim -f
-"au LocationChange mail\.google\.com :set editor=gvim -f -c 'set ft=mail'
-
 
 "Pour « [[ » et « ]] » permet de les faire fonctionner en Français
 "Ajout de précédent/suivant
 set nextpattern=\bnext|suivant\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\bmore\b
 set previouspattern=\bprev|previous|précédent\b,^<$,^(<<|«)$,^(<|«),(<|«)$
 
-"Montre l’icône rss dans la « statusbar » même si il n’y a pas de barre d’adresse
-javascript <<EOF
-(function(){
-    var feedPanel = document.createElement("statusbarpanel");
-    feedPanel.setAttribute("id", "feed-panel-clone");
-    feedPanel.appendChild(document.getElementById("feed-button"));
-    feedPanel.firstChild.setAttribute("style", "padding: 0; max-height: 16px;");
-    document.getElementById("status-bar")
-            .insertBefore(feedPanel, document.getElementById("security-button"));
- })();
-EOF
 
 " {W} -> [É]
 " ——————————
@@ -122,29 +89,6 @@ noremap gé gt
 
 "pour que mon apostrophe courbe soit reconnue comme droite
 "noremap ’ ' "ne fonctionne pas
-
-" Chiffres en accès direct /!\ pas utilisé depuis que j’ai les chiffres en accès direct
-" ————————————————————————
-"cmap 0 "
-"cmap 1 <
-"cmap 2 >
-"cmap 3 (
-"cmap 4 )
-"cmap 5 [
-"cmap 6 ]
-"cmap 7 /
-"cmap 8 * 
-"cmap 9 =
-"cmap " 0
-"cmap < 1
-"cmap > 2
-"cmap ( 3
-"cmap ) 4
-"cmap [ 5
-"cmap ] 6
-"cmap / 7
-"cmap * 8
-"cmap = 9
 
 noremap <BS> <C-u>
 noremap <Space> <C-d>
