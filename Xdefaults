@@ -38,7 +38,9 @@
 ! #define S_base2 #073642
 ! #define S_base3 #002b36
 
-
+Xft*dpi:    96
+Xft*antialias:  true
+Xft*hinting:  true
 
 
 !UXTerm
@@ -48,7 +50,7 @@ UXTerm*background : black
 UXTerm*metaSendsEscape: true
 UXTerm*eightBitInput: false
 UXTerm*faceName : Dejavu Vera Sans Mono
-UXTerm*faceSize : 10
+UXTerm*faceSize : 14
 UXTerm.vt100.allowSendEvents: on
 UXTerm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
 
@@ -59,7 +61,7 @@ XTerm*background : black
 XTerm*metaSendsEscape: true
 XTerm*eightBitInput: false
 XTerm*faceName : Dejavu Vera Sans Mono
-XTerm*faceSize : 10
+XTerm*faceSize : 14
 XTerm*vt100.allowSendEvents: on
 XTerm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
 XTerm*locale : utf8
@@ -78,13 +80,16 @@ URxvt.lineSpace: 0
 
 
 !URxvt*font	 :	xft:BitStream Vera Sans Mono:pixelsize=13
-URxvt*font: xft:Monospace:pixelsize=14
-URxvt*boldFont: xft:Monospace:pixelsize=14
+URxvt*font: xft:Monospace:pixelsize=20
+URxvt*boldFont: xft:Monospace:pixelsize=20
 URxvt*scrollBar	 :	false
 URxvt*eightBitInput :   false
-URxvt*perl-ext-common:  default,matcher
+URxvt*perl-ext-common:  default,matcher,searchable-scrollback
 URxvt*urlLauncher:      /usr/local/bin/xombrero
 URxvt*matcher.button:   1
+URxvt*locale:utf8
+!test for solarized
+URxvt.intensityStyles: false
 
 
 
@@ -95,6 +100,18 @@ URxvt.cursorUnderline:      false
 
 ! Pointer
 URxvt.pointerBlank:         true
+
+!colors for man pages
+!#define S_yellow #b58900
+!#define S_orange #cb4b16
+!#define S_red #dc322f
+!#define S_magenta #d33682
+!#define S_violet #6c71c4
+!#define S_blue #268bd2
+!#define S_cyan #2aa198
+!#define S_green #859900
+URxvt.colorBD: #b58900
+URxvt.colorUL: #2aa198
 
 !!Source http://github.com/altercation/solarized
 
