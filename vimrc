@@ -247,34 +247,6 @@ map <BS> <PageUp>
 " imap <C-G>s <Plug>Isurround
 " imap <C-G>S <Plug>ISurround
 
-" "undotree
-" nnoremap <F5> :UndotreeToggle<cr>
-
-" if has("persistent_undo")
-"     set undodir=~/.vim/.undodir/
-"     set undofile
-" endif
-
-" function g:undotree_CustomMap()
-"     map <c-n> J
-"     map <c-p> K
-" endfunction"
-
-" "minibufferexplorer
-" "let g:miniBufExplMapWindowNavVim = 1
-" "let g:miniBufExplMapWindowNavArrows = 1
-" "let g:miniBufExplMapCTabSwitchBufs = 1
-" "
-" ""choix du buffer en un click
-" "let g:miniBufExplUseSingleClick = 1
-
-" "Taglist
-" "let g:Tlist_Ctags_Cmd = '/usr/bin/ctags'
-" "map <F8> <ESC>:TlistToggle<CR>
-
-" "supertab
-" "au FileType perl set omnifunc=perlcomplete#Complet
-" "let g:SuperTabDefaultCompletionType = "context"
 
 " "ctrlp
 " let g:ctrlp_prompt_mappings = {
