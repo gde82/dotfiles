@@ -20,42 +20,42 @@ syntax enable
 " "
 " " let Vundle manage Vundle
 " " required!
- Bundle 'gmarik/Vundle.vim'
+ Plugin 'gmarik/Vundle.vim'
 " "
-" " " Bundles
- Bundle 'vim-scripts/Align'
- Bundle 'Raimondi/delimitMate'
- "Bundle 'tpope/vim-surround' 
- Bundle 'tpope/vim-commentary' 
- "Bundle 'kien/ctrlp.vim'
- "Bundle 'ervandew/supertab'
- Bundle 'tpope/vim-repeat'
- Bundle 'amirh/HTML-AutoCloseTag'
- "Bundle 'scrooloose/nerdtree'
- "Bundle 'vim-scripts/taglist.vim'
- Bundle 'tpope/vim-fugitive'
- Bundle 'bling/vim-airline'
- Bundle 'scrooloose/syntastic'
-" Bundle 'mbbill/undotree'
- "Bundle 'mhinz/vim-signify'
- "Bundle 'vim-scripts/LanguageTool'
- "Bundle 'mattn/webapi-vim'
- "Bundle 'mattn/gist-vim'
- Bundle 'Valloric/YouCompleteMe' 
+" " " Plugins
+ Plugin 'vim-scripts/Align'
+ Plugin 'Raimondi/delimitMate'
+ "Plugin 'tpope/vim-surround' 
+ " Plugin 'tpope/vim-commentary' has issue with 'c' key
+ "Plugin 'kien/ctrlp.vim'
+ "Plugin 'ervandew/supertab'
+ Plugin 'tpope/vim-repeat'
+ Plugin 'amirh/HTML-AutoCloseTag'
+ Plugin 'scrooloose/nerdtree'
+ "Plugin 'vim-scripts/taglist.vim'
+ Plugin 'tpope/vim-fugitive'
+ Plugin 'bling/vim-airline'
+ Plugin 'scrooloose/syntastic'
+" Plugin 'mbbill/undotree'
+ "Plugin 'mhinz/vim-signify'
+ "Plugin 'vim-scripts/LanguageTool'
+ "Plugin 'mattn/webapi-vim'
+ "Plugin 'mattn/gist-vim'
+ Plugin 'Valloric/YouCompleteMe' 
 " "
 " " " Syntax plugins
-" Bundle 'hail2u/vim-css3-syntax'
-" Bundle 'othree/html5-syntax.vim'
-" Bundle 'tpope/vim-markdown'
-" Bundle 'jelera/vim-javascript-syntax'
-" Bundle 'leshill/vim-json'
+" Plugin 'hail2u/vim-css3-syntax'
+" Plugin 'othree/html5-syntax.vim'
+" Plugin 'tpope/vim-markdown'
+" Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'leshill/vim-json'
 " "
 " " "vim colors
- Bundle 'altercation/vim-colors-solarized'
+ Plugin 'altercation/vim-colors-solarized'
 " "
 " " snippets
- Bundle 'SirVer/ultisnips'
- Bundle 'honza/vim-snippets'
+ Plugin 'SirVer/ultisnips'
+ Plugin 'honza/vim-snippets'
 
  call vundle#end()
  filetype plugin indent on
@@ -211,17 +211,17 @@ map <Space> <PageDown>
 map <BS> <PageUp>
 
 " NERDTree
-" map <F3> :NERDTreeToggle<cr>
-" let NERDTreeMapOpenInTab='h'
-" let NERDTreeMapOpenInTabSilent='H'
-" let NERDTreeMapOpenVSplit='<C-v>'
-" let NERDTreeMapJumpFirstChild='S'
-" let NERDTreeMapJumpLastChild='T'
-" let NERDTreeMapJumpNextSibling='<C-T>'
-" let NERDTreeMapJumpPrevSibling='<C-S>'
-"let NERDTreeMapChdir='L'
-"let NERDTreeMapRefresh='j'
-"let NERDTreeMapRefreshRoot='J'
+map <F3> :NERDTreeToggle<cr>
+let NERDTreeMapOpenInTab='h'
+let NERDTreeMapOpenInTabSilent='H'
+let NERDTreeMapOpenVSplit='<C-v>'
+let NERDTreeMapJumpFirstChild='S'
+let NERDTreeMapJumpLastChild='T'
+let NERDTreeMapJumpNextSibling='<C-T>'
+let NERDTreeMapJumpPrevSibling='<C-S>'
+let NERDTreeMapChdir='L'
+let NERDTreeMapRefresh='j'
+let NERDTreeMapRefreshRoot='J'
 
 " surround
 " let g:surround_no_mappings=1
@@ -248,49 +248,49 @@ map <BS> <PageUp>
 " imap <C-G>S <Plug>ISurround
 
 
-" "ctrlp
+"ctrlp
 " let g:ctrlp_prompt_mappings = {
-"     \ 'PrtSelectMove("j")': ['<c-t>', '<down>'],
-"     \ 'PrtSelectMove("k")': ['<c-s>', '<up>'],
-"     \ 'AcceptSelection("t")': ['<c-j>'],
-"     \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>'],
+"     \ 'PrtSelectMove("t")': ['<c-t>', '<down>'],
+"     \ 'PrtSelectMove("s")': ['<c-s>', '<up>'],
+"     \ 'AcceptSelection("è")': ['<c-j>'],
+"     \ 'AcceptSelection("c")': ['<c-x>', '<c-cr>'],
 "     \}
 
 " "markdown
- au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " "airline
 " "" extension tab/buffer
- let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " "" séparateur verticaux
- let g:airline#extensions#tabline#left_sep = ' '
- let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " "signify
 " let g:signify_vcs_list = [ 'git', 'hg' ]
 
 " "syntastic
- let g:syntastic_enable_perl_checker = 1
+let g:syntastic_enable_perl_checker = 1
  "let g:syntastic_perl_checkers = ['perl','perlcritic']
- let g:syntastic_perl_checkers = ['perl']
- let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_perl_checkers = ['perl']
+let g:syntastic_javascript_checkers = ['jshint']
 
 " "languagetool
 " "let g:languagetool_jar='~/.vim/LanguageTool-2.3/languagetool-standalone.jar'
 
 " "delimitMate
- set backspace=2 "allow backspacing over the start of insert
- let delimitMate_expand_space = 1 
- let delimitMate_expand_cr = 1 
+set backspace=2 "allow backspacing over the start of insert
+let delimitMate_expand_space = 1 
+let delimitMate_expand_cr = 1 
 
 " "ultisnip
- let g:UltiSnipsExpandTrigger="<tab>"
- let g:UltiSnipsJumpForwardTrigger="<c-t>"
- let g:UltiSnipsJumpBackwardTrigger="<c-s>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-t>"
+let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " "utiliser :UltiSnipsEdit dans une fenetre vertical
- let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="vertical"
 
 
 "macros
