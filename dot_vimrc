@@ -294,4 +294,4 @@ endfunction
 endif
 
 "do chezmoi apply when edit dotfile
-autocmd BufWritPost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
+autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
