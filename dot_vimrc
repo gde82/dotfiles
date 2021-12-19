@@ -42,6 +42,9 @@ Plug 'avakhov/vim-yaml'
  Plug 'joshdick/onedark.vim'
  Plug 'morhetz/gruvbox'
 " "
+"
+" Chezmoi highlighting
+Plug 'alker0/chezmoi.vim'
 
 call plug#end()
 
