@@ -1,0 +1,294 @@
+set nocompatible
+
+"encodage utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+
+"activer plugins
+filetype off
+
+"retour chariot unix
+set ffs=unix,dos
+
+
+" vim-plug
+call plug#begin('~/.vim/plugged')
+
+
+" " " Plugs
+ Plug 'bling/vim-airline'
+Plug 'avakhov/vim-yaml'
+ "git
+"" Plug 'tpope/vim-fugitive'
+"" Plug 'gregsexton/gitv'
+ 
+
+" "
+" " " Syntax plugins
+" Plug 'hail2u/vim-css3-syntax'
+" Plug 'othree/html5-syntax.vim'
+" Plug 'tpope/vim-markdown'
+" Plug 'jelera/vim-javascript-syntax'
+" Plug 'leshill/vim-json'
+" "
+" " "vim colors
+ Plug 'altercation/vim-colors-solarized'
+ Plug 'joshdick/onedark.vim'
+ Plug 'morhetz/gruvbox'
+" "
+
+call plug#end()
+
+" " Fast saving
+ nmap <leader>w :w!<cr>
+
+" "ouvrir vimrc
+ nmap <leader>e :e ~/.vimrc<cr>
+
+" " When vimrc is edited, reload it
+if has("autocmd")
+ autocmd! bufwritepost .vimrc source ~/.vimrc
+endif
+
+" "session en sur répertoire courant
+" set sessionoptions=sesdir,unix,tabpages,buffers
+
+" "backup et changement de temp path
+" " tell vim to keep a backup file
+" "set backup
+
+" " tell vim where to put its backup files
+" "set backupdir=~/.vim/tmp
+
+" " tell vim where to put swap files
+" "set dir=~/.vim/tmp
+
+" "fonts
+set guifont=Monospace\ 12
+
+" "airline ne fonctionne pas sans laststatus=2
+ set laststatus=2
+
+" "orthograph
+" set spell
+" set spelllang=fr,en
+
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+" ""
+" "solarized
+" """
+"
+"coloration - juste indispensable
+syntax on
+"italic pour gruvbox
+let g:gruvbox_italic=1
+set bg=dark
+colorscheme gruvbox
+"colorscheme solarized
+
+
+
+
+" "coloratio Ã  partir de la colonne 81
+" "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" "match OverLength /\%81v.\+/
+
+ "indentation
+ set expandtab
+ set shiftwidth=4
+ set softtabstop=4
+
+ set autoindent
+ set smartindent
+
+" "nombre
+ set number
+
+" "recherche incrémental
+ set incsearch
+
+ "configuration copier/coller
+ set clipboard=unnamedplus
+
+"BEPO
+" {W} -> [Ã‰]
+" â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+" On remappe W sur Ã‰ :
+noremap é w
+noremap É W
+" Corollaire, pour effacer/remplacer un mot quand on nâ€™est pas au dÃ©but (daÃ© / laÃ©).
+" (attention, cela diminue la rÃ©activitÃ© du {A}â€¦)
+"noremap aÃ© aw
+"noremap aÃ‰ aW
+" Pour faciliter les manipulations de fenÃªtres, on utilise {W} comme un Ctrl+W :
+noremap w <C-w>
+noremap W <C-w><C-w>
+ 
+" [HJKL] -> {CTSR}
+" â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+" {cr} = Â« gauche / droite Â»
+noremap c h
+noremap r l
+" {ts} = Â« haut / bas Â»
+noremap t j
+noremap s k
+" {CR} = Â« haut / bas de l'Ã©cran Â»
+noremap C H
+noremap R L
+" {TS} = Â« joindre / aide Â»
+noremap T J
+noremap S K
+" Corollaire : repli suivant / prÃ©cÃ©dent
+noremap zs zj
+noremap zt zk
+ 
+" {HJKL} <- [CTSR]
+" â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+" {J} = Â« Jusqu'Ã  Â»            (j = suivant, J = prÃ©cÃ©dant)
+noremap j t
+noremap J T
+" {L} = Â« Change Â»             (h = bloc, H = jusqu'Ã  la fin de ligne)
+noremap l c
+noremap L C
+" {H} = Â« Remplace Â»           (l = caractÃ¨re, L = texte)
+noremap h r
+noremap H R
+" {K} = Â« Substitue Â»          (k = caractÃ¨re, K = ligne)
+noremap k s
+noremap K S
+" Corollaire : correction orthographique
+noremap ]k ]s
+noremap [k [s
+ 
+" DÃ©sambiguation de {g}
+" â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+" ligne Ã©cran prÃ©cÃ©dente / suivante (Ã  l'intÃ©rieur d'une phrase)
+noremap gs gk
+noremap gt gj
+" onglet prÃ©cÃ©dant / suivant
+noremap gb gT
+noremap gé gt
+" optionnel : {gB} / {gÃ‰} pour aller au premier / dernier onglet
+noremap gB :exe "silent! tabfirst"<CR>
+noremap gÉ :exe "silent! tablast"<CR>
+" optionnel : {g"} pour aller au dÃ©but de la ligne Ã©cran
+noremap g" g0
+ 
+" <> en direct
+" â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+noremap « <
+noremap » >
+
+" Remaper la gestion des fenêtres
+" ———————————————————————————————
+noremap wt <C-w>j
+noremap ws <C-w>k
+noremap wc <C-w>h
+noremap wr <C-w>l
+noremap wd <C-w>c
+noremap wo <C-w>s
+noremap wp <C-w>o
+noremap w<SPACE> :split<CR>
+noremap w<CR> :vsplit<CR>
+
+noremap <Space> <PageDown>
+noremap <BS> <PageUp>
+
+" NERDTree
+"map <F3> :NERDTreeToggle<cr>
+"let NERDTreeMapOpenInTab='h'
+"let NERDTreeMapOpenInTabSilent='H'
+"let NERDTreeMapOpenVSplit='<C-v>'
+"let NERDTreeMapJumpFirstChild='S'
+"let NERDTreeMapJumpLastChild='T'
+"let NERDTreeMapJumpNextSibling='<C-T>'
+"let NERDTreeMapJumpPrevSibling='<C-S>'
+"let NERDTreeMapChdir='L'
+"let NERDTreeMapRefresh='j'
+"let NERDTreeMapRefreshRoot='J'
+
+" surround
+" let g:surround_no_mappings=1
+" " disable s in visual (bepo conflict)
+" xmap <Leader>s <Plug>Vsurround
+" " switch cs for ls
+" nmap ls <Plug>Csurround
+" " as is
+" nmap ds <Plug>Dsurround
+" nmap ys <Plug>Ysurround
+" nmap yS <Plug>YSurround
+" nmap yss <Plug>Yssurround
+" nmap ySs <Plug>YSsurround
+" nmap ySS <Plug>YSsurround
+" xmap S <Plug>VSurround
+" xmap gS <Plug>VgSurround
+" if maparg('s', 'x') ==# ''
+"   xnoremap <silent> s :<C-U>echoerr 'surround.vim: Visual mode s has been removed in favor of S'<CR>
+" endif
+" if !hasmapto("<Plug>Isurround","i") && "" == mapcheck("<C-S>","i")
+"   imap <C-S> <Plug>Isurround
+" endif
+" imap <C-G>s <Plug>Isurround
+" imap <C-G>S <Plug>ISurround
+
+
+"ctrlp
+" let g:ctrlp_prompt_mappings = {
+"     \ 'PrtSelectMove("t")': ['<c-t>', '<down>'],
+"     \ 'PrtSelectMove("s")': ['<c-s>', '<up>'],
+"     \ 'AcceptSelection("è")': ['<c-j>'],
+"     \ 'AcceptSelection("c")': ['<c-x>', '<c-cr>'],
+"     \}
+
+" "markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+
+" "airline
+" "" extension tab/buffer
+let g:airline#extensions#tabline#enabled = 1
+
+" "" séparateur verticaux
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" "signify
+" let g:signify_vcs_list = [ 'git', 'hg' ]
+
+"tagbar
+"nmap <F8> :TagbarToggle<CR>
+
+"YouCompleteMe
+"let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+"let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+"let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+"let g:ycm_complete_in_comments = 1 " Completion in comments
+"let g:ycm_complete_in_strings = 1 " Completion in string
+
+"netrw
+if has("autocmd")
+augroup netrw_dvorak_fix
+    autocmd!
+    autocmd filetype netrw call Fix_netrw_maps_for_dvorak()
+augroup END
+function! Fix_netrw_maps_for_dvorak()
+    noremap <buffer> t j
+    noremap <buffer> s k
+    noremap <buffer> k s
+endfunction
+endif
