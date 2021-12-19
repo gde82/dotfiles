@@ -292,3 +292,6 @@ function! Fix_netrw_maps_for_dvorak()
     noremap <buffer> k s
 endfunction
 endif
+
+"do chezmoi apply when edit dotfile
+autocmd BufWritPost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
