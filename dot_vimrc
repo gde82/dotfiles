@@ -24,31 +24,24 @@ endif
 call plug#begin('~/.vim/plugged')
 
 
-" " " Plugs
+" Plugs
  Plug 'bling/vim-airline'
+
  "git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter' 
 
-" "
-" " " Syntax plugins
-" Plug 'hail2u/vim-css3-syntax'
-" Plug 'othree/html5-syntax.vim'
-" Plug 'tpope/vim-markdown'
-" Plug 'jelera/vim-javascript-syntax'
-" Plug 'leshill/vim-json'
-" "
 " " "vim colors
- Plug 'altercation/vim-colors-solarized'
- Plug 'joshdick/onedark.vim'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'joshdick/onedark.vim'
  Plug 'morhetz/gruvbox'
 " "
 "
 
 "nerdtree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'preservim/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'ryanoasis/vim-devicons'
 
 " highlighting
 Plug 'chr4/nginx.vim'
@@ -69,24 +62,12 @@ if has("autocmd")
  autocmd! bufwritepost .vimrc source ~/.vimrc
 endif
 
-" "session en sur répertoire courant
-" set sessionoptions=sesdir,unix,tabpages,buffers
-
-" "backup et changement de temp path
-" " tell vim to keep a backup file
-" "set backup
-
-" " tell vim where to put its backup files
-" "set backupdir=~/.vim/tmp
-
-" " tell vim where to put swap files
-" "set dir=~/.vim/tmp
 
 " "fonts
 set guifont=Monospace\ 12
 
 " "airline ne fonctionne pas sans laststatus=2
- set laststatus=2
+set laststatus=2
 
 " "orthograph
 " set spell
@@ -119,9 +100,6 @@ syntax on
 let g:gruvbox_italic=1
 set bg=dark
 colorscheme gruvbox
-"colorscheme solarized
-
-
 
 
 " "coloratio Ã  partir de la colonne 81
@@ -136,6 +114,9 @@ colorscheme gruvbox
  set autoindent
  set smartindent
 
+"hide buffer when opening new file instead of closing it
+set hidden
+
 " "nombre
  set number
 
@@ -143,7 +124,10 @@ colorscheme gruvbox
  set incsearch
 
  "configuration copier/coller
- set clipboard=unnamedplus
+set clipboard=unnamedplus
+
+set list
+set listchars=tab:▶\ ,trail:·
 
 "BEPO
 " {W} -> [Ã‰]
@@ -242,38 +226,6 @@ noremap <BS> <PageUp>
 "let NERDTreeMapRefresh='j'
 "let NERDTreeMapRefreshRoot='J'
 
-" surround
-" let g:surround_no_mappings=1
-" " disable s in visual (bepo conflict)
-" xmap <Leader>s <Plug>Vsurround
-" " switch cs for ls
-" nmap ls <Plug>Csurround
-" " as is
-" nmap ds <Plug>Dsurround
-" nmap ys <Plug>Ysurround
-" nmap yS <Plug>YSurround
-" nmap yss <Plug>Yssurround
-" nmap ySs <Plug>YSsurround
-" nmap ySS <Plug>YSsurround
-" xmap S <Plug>VSurround
-" xmap gS <Plug>VgSurround
-" if maparg('s', 'x') ==# ''
-"   xnoremap <silent> s :<C-U>echoerr 'surround.vim: Visual mode s has been removed in favor of S'<CR>
-" endif
-" if !hasmapto("<Plug>Isurround","i") && "" == mapcheck("<C-S>","i")
-"   imap <C-S> <Plug>Isurround
-" endif
-" imap <C-G>s <Plug>Isurround
-" imap <C-G>S <Plug>ISurround
-
-
-"ctrlp
-" let g:ctrlp_prompt_mappings = {
-"     \ 'PrtSelectMove("t")': ['<c-t>', '<down>'],
-"     \ 'PrtSelectMove("s")': ['<c-s>', '<up>'],
-"     \ 'AcceptSelection("è")': ['<c-j>'],
-"     \ 'AcceptSelection("c")': ['<c-x>', '<c-cr>'],
-"     \}
 
 " "markdown
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -285,19 +237,6 @@ let g:airline#extensions#tabline#enabled = 1
 " "" séparateur verticaux
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-
-" "signify
-" let g:signify_vcs_list = [ 'git', 'hg' ]
-
-"tagbar
-"nmap <F8> :TagbarToggle<CR>
-
-"YouCompleteMe
-"let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-"let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-"let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-"let g:ycm_complete_in_comments = 1 " Completion in comments
-"let g:ycm_complete_in_strings = 1 " Completion in string
 
 "netrw
 if has("autocmd")
