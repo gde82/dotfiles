@@ -7,6 +7,9 @@ set fileencoding=utf-8
 "activer plugins
 filetype off
 
+"set leader to ,
+let mapleader = ','
+
 "retour chariot unix
 set ffs=unix,dos
 
@@ -23,11 +26,9 @@ call plug#begin('~/.vim/plugged')
 
 " " " Plugs
  Plug 'bling/vim-airline'
-Plug 'avakhov/vim-yaml'
  "git
-"" Plug 'tpope/vim-fugitive'
-"" Plug 'gregsexton/gitv'
- 
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter' 
 
 " "
 " " " Syntax plugins
@@ -43,8 +44,17 @@ Plug 'avakhov/vim-yaml'
  Plug 'morhetz/gruvbox'
 " "
 "
-" Chezmoi highlighting
+
+"nerdtree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+
+" highlighting
+Plug 'chr4/nginx.vim'
+Plug 'preservim/vim-markdown'
 Plug 'alker0/chezmoi.vim'
+Plug 'avakhov/vim-yaml'
 
 call plug#end()
 
